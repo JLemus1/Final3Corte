@@ -120,6 +120,10 @@ public  class Repositorio <T>  {
  public void setLista(List<T> t) {        
          lista=t;
     }
+
+    public Object buscar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 
     

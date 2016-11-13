@@ -40,7 +40,14 @@ public class ProductoControlador {
        vprod.dispose();
       }
      public Producto traer(int id){
-    
-        return null;
+     /*
+         List<Producto> listaProd = regProducto.getLista();
+         for(int i=0; i < listaProd.size();i++){
+             if (listaProd.get(i).getId()==id){
+                 return listaProd.get(i);
+             }
+         }*/
+         Producto Actualprod = (Producto)regProducto.traer(id);
+        return Actualprod;
      } 
 }

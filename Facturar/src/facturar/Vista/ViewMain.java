@@ -30,7 +30,7 @@ public class ViewMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Panel_sup.setBackground(new java.awt.Color(255, 255, 204));
+        Panel_sup.setBackground(new java.awt.Color(204, 204, 204));
         Panel_sup.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -82,6 +82,8 @@ public class ViewMain extends javax.swing.JFrame {
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Listar Clientes");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Salir");
+        treeNode1.add(treeNode2);
         TreeMenu.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         TreeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,7 +113,7 @@ public class ViewMain extends javax.swing.JFrame {
             .addGroup(Panel_centralLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Panel_izq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(653, Short.MAX_VALUE))
+                .addContainerGap(650, Short.MAX_VALUE))
         );
         Panel_centralLayout.setVerticalGroup(
             Panel_centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,6 +132,12 @@ public class ViewMain extends javax.swing.JFrame {
         String opcion= TreeMenu.getLastSelectedPathComponent().toString();                
         
         switch (opcion){
+             case "Nueva Factura":  
+                ViewFactura vfact = new ViewFactura();
+                vfact.setLocationRelativeTo(null);
+                vfact.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vfact.setVisible(true);
+                break;
             case "Nuevo Cliente":
                 ViewCliente vcli = new ViewCliente();
                 vcli.setLocationRelativeTo(null);
@@ -142,6 +150,9 @@ public class ViewMain extends javax.swing.JFrame {
                 vprod.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 vprod.setVisible(true);
                 break;
+            case "Salir":
+                int resp=JOptionPane.showConfirmDialog(this, "Desea Salir del Sistema");
+                if (resp==0) System.exit(0);
         }
         opcion="";
     }//GEN-LAST:event_cliente

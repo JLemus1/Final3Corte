@@ -45,7 +45,7 @@ public class ViewCliente extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cboEstado = new javax.swing.JComboBox<>();
+        cboEstado = new javax.swing.JComboBox<String>();
         btnAceptar = new javax.swing.JButton();
         btnCanelar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -125,7 +125,7 @@ public class ViewCliente extends javax.swing.JFrame {
 
         jLabel7.setText("Estado");
 
-        cboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo", "Suspendido", " " }));
+        cboEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo", "Suspendido", " " }));
 
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +143,7 @@ public class ViewCliente extends javax.swing.JFrame {
 
         jLabel8.setText("Id");
 
+        txtId.setEnabled(false);
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdActionPerformed(evt);
@@ -177,9 +178,9 @@ public class ViewCliente extends javax.swing.JFrame {
                             .addGroup(Panel_centralLayout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(19, 19, 19)))
-                        .addGroup(Panel_centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNit, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRazonSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(Panel_centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtRazonSocial, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(txtNit)))
                     .addGroup(Panel_centralLayout.createSequentialGroup()
                         .addGroup(Panel_centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,17 +188,15 @@ public class ViewCliente extends javax.swing.JFrame {
                             .addComponent(btnAceptar))
                         .addGap(18, 18, 18)
                         .addGroup(Panel_centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Panel_centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(Panel_centralLayout.createSequentialGroup()
-                                    .addComponent(cboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(45, 45, 45))
+                            .addGroup(Panel_centralLayout.createSequentialGroup()
+                                .addGap(169, 169, 169)
                                 .addComponent(btnCanelar))
-                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cboEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_centralLayout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(78, 78, 78)
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(161, 161, 161)))
+                        .addComponent(txtId)))
                 .addContainerGap(163, Short.MAX_VALUE))
         );
         Panel_centralLayout.setVerticalGroup(
@@ -309,10 +308,13 @@ public class ViewCliente extends javax.swing.JFrame {
 
     private void btnCanelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCanelarActionPerformed
        this.dispose();
+       
     }//GEN-LAST:event_btnCanelarActionPerformed
 
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        // TODO add your handling code here:
+        
+        
+        
     }//GEN-LAST:event_txtIdActionPerformed
 
     private void txtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyTyped

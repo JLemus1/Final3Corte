@@ -43,12 +43,5 @@ public class ClienteControlador {
        vcli.dispose();
       }
     
-       public  boolean ExisteId(int id){
-       
-       
-           return false;
-       }
-       
-       
        
 }
