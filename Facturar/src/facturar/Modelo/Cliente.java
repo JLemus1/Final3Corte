@@ -5,7 +5,7 @@ public class Cliente {
     
     private int id;
 
-    private String nit;
+    private int nit;
     private String razonSocial;
     private String direccion;
     private String correo;
@@ -16,14 +16,14 @@ public class Cliente {
   
     }
 
-    public Cliente(int id,String nit, String razonSocial) {
+    public Cliente(int id,int nit, String razonSocial) {
         
         this.id=id;
         this.nit = nit;
         this.razonSocial = razonSocial;
     }
 
-    public Cliente(int id,String nit, String razonSocial, String direccion, String correo, String rtelefono, String estado) {
+    public Cliente(int id,int nit, String razonSocial, String direccion, String correo, String rtelefono, String estado) {
         this.id=id;
         this.nit = nit;
         this.razonSocial = razonSocial;
@@ -42,11 +42,11 @@ public class Cliente {
         this.id = id;
     }
 
-    public String getNit() {
+    public int getNit() {
         return nit;
     }
 
-    public void setNit(String nit) {
+    public void setNit(int nit) {
         this.nit = nit;
     }
 

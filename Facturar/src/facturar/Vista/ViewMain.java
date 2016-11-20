@@ -1,8 +1,26 @@
 
 package facturar.Vista;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.BorderFactory;
+import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTree;
+import javax.swing.LayoutStyle;
+import javax.swing.WindowConstants;
+import javax.swing.border.BevelBorder;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 
 public class ViewMain extends javax.swing.JFrame {
@@ -29,39 +47,44 @@ public class ViewMain extends javax.swing.JFrame {
         TreeMenu = new javax.swing.JTree();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        Panel_sup.setBackground(new java.awt.Color(204, 204, 204));
+        Panel_sup.setBackground(new java.awt.Color(255, 255, 255));
         Panel_sup.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Facturación");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/facturar/Vista/LogoTechTrasparente.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/facturar/Vista/logoNova.png"))); // NOI18N
 
         javax.swing.GroupLayout Panel_supLayout = new javax.swing.GroupLayout(Panel_sup);
         Panel_sup.setLayout(Panel_supLayout);
         Panel_supLayout.setHorizontalGroup(
             Panel_supLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_supLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 517, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 456, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(22, 22, 22))
         );
         Panel_supLayout.setVerticalGroup(
             Panel_supLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_supLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
                 .addGroup(Panel_supLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(Panel_supLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel2))
+                    .addGroup(Panel_supLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         getContentPane().add(Panel_sup, java.awt.BorderLayout.PAGE_START);
 
-        TreeMenu.setBackground(new java.awt.Color(240, 240, 240));
+        Panel_central.setBackground(new java.awt.Color(255, 255, 255));
+
         TreeMenu.setForeground(java.awt.SystemColor.menu);
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Inicio");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Facturas");
@@ -113,7 +136,7 @@ public class ViewMain extends javax.swing.JFrame {
             .addGroup(Panel_centralLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Panel_izq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(650, Short.MAX_VALUE))
+                .addContainerGap(580, Short.MAX_VALUE))
         );
         Panel_centralLayout.setVerticalGroup(
             Panel_centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +150,7 @@ public class ViewMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cliente(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cliente
+    private void cliente(MouseEvent evt) {//GEN-FIRST:event_cliente
         // TODO add your handling code here:
         String opcion= TreeMenu.getLastSelectedPathComponent().toString();                
         
@@ -137,6 +160,12 @@ public class ViewMain extends javax.swing.JFrame {
                 vfact.setLocationRelativeTo(null);
                 vfact.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 vfact.setVisible(true);
+                break;
+             case "Listar Facturas":
+                 ViewListaFactura vlisfact = new ViewListaFactura();
+                 vlisfact.setLocationRelativeTo(null);
+                 vlisfact.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                 vlisfact.setVisible(true);
                 break;
             case "Nuevo Cliente":
                 ViewCliente vcli = new ViewCliente();
@@ -149,6 +178,12 @@ public class ViewMain extends javax.swing.JFrame {
                 vprod.setLocationRelativeTo(null);
                 vprod.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 vprod.setVisible(true);
+                break;
+            case "Listar Producto":
+                ViewListaProducto vlisprod = new ViewListaProducto();
+                vlisprod.setLocationRelativeTo(null);
+                vlisprod.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vlisprod.setVisible(true);
                 break;
             case "Salir":
                 int resp=JOptionPane.showConfirmDialog(this, "Desea Salir del Sistema");

@@ -312,8 +312,7 @@ public class ViewCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCanelarActionPerformed
 
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
-        
-        
+    
         
     }//GEN-LAST:event_txtIdActionPerformed
 

@@ -39,7 +39,7 @@ public  class Repositorio <T>  {
         }
     } 
     
-     public void cargar (String nombre) {
+     public void cargar (String nombre)  {
         String ruta="datos/"+nombre+".json";
     
         File archivo =new File(ruta);
@@ -48,16 +48,12 @@ public  class Repositorio <T>  {
         Gson gson =new Gson();
          FileReader reader;
         try {
-            reader = new FileReader(ruta);
-            Type tipo=null;
-             if (nombre =="Cliente") 
-                tipo = new TypeToken<List<Cliente>>(){}.getType();  
-             if (nombre =="Producto") 
-                tipo = new TypeToken<List<Producto>>(){}.getType(); 
-             
-             lista = gson.fromJson(reader,tipo);             
-                         
-          int x=1;   
+            reader = new FileReader(ruta); 
+            Type tipo=Helper.getTipoRepo(nombre);// obtiene el tipo de repositorio generico 
+            if (tipo != null ){ 
+              lista = gson.fromJson(reader,tipo);             
+            }             
+          
         } catch (FileNotFoundException ex) {
            System.out.println(ex);
         }
@@ -79,13 +75,34 @@ public  class Repositorio <T>  {
                    Class element = Class.forName(it.getClass().getName());
                    return (int)element.getMethod("getId").invoke(it);        
                 }
-              catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException | InvocationTargetException ex) {
+              catch (ClassNotFoundException | IllegalAccessException |
+                      IllegalArgumentException | NoSuchMethodException | SecurityException | 
+                      InvocationTargetException ex) {
                  Logger.getLogger(Repositorio.class.getName()).log(Level.SEVERE, null, ex);
                 }             
               }
           }
           return -1;
      }
+    public boolean contiene(int t) {
+        Iterator<T> it = getLista().iterator();
+            while (it.hasNext()){
+              if (it.equals(t)){
+              try {
+                   Class element = Class.forName(it.getClass().getName());
+                   element.getMethod("getId").invoke(it);  
+                   return true;
+                }
+              catch (ClassNotFoundException | IllegalAccessException |
+                      IllegalArgumentException | NoSuchMethodException | SecurityException | 
+                      InvocationTargetException ex) {
+                 Logger.getLogger(Repositorio.class.getName()).log(Level.SEVERE, null, ex);
+                }             
+              }
+          }
+            return false;
+        
+    }
     
     public void borrar(T t) {
        lista.remove(t);
@@ -93,7 +110,7 @@ public  class Repositorio <T>  {
 
     
     public void modificar(int id) {
-          
+       
     }
     
  public T traer(int id) {
@@ -106,7 +123,8 @@ public  class Repositorio <T>  {
         if (xid == id) {
         return (T) item;
     }
-    } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException | InvocationTargetException ex) {
+    } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException 
+            | NoSuchMethodException | SecurityException | InvocationTargetException ex) {
         Logger.getLogger(Repositorio.class.getName()).log(Level.SEVERE, null, ex);
     }
     }
@@ -121,9 +139,9 @@ public  class Repositorio <T>  {
          lista=t;
     }
 
-    public Object buscar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+
+    
     
 
     

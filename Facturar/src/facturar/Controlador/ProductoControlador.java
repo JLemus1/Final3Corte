@@ -26,7 +26,10 @@ public class ProductoControlador {
     }
       public void  crear(ViewProducto  vprod){
        
-         
+         if (ExisteId(Integer.parseInt(vprod.txtId.getText()))){
+           JOptionPane.showMessageDialog(null,"Id existe intente otro");
+           return;
+           }
        Producto prod = new Producto(); 
        prod.setId(Integer.parseInt(vprod.txtId.getText()));
        prod.setId(Integer.parseInt(vprod.txtId.getText()));
@@ -50,4 +53,8 @@ public class ProductoControlador {
          Producto Actualprod = (Producto)regProducto.traer(id);
         return Actualprod;
      } 
+     public boolean ExisteId(int Id){
+           return !regProducto.contiene(Id);
+           
+       }
 }
