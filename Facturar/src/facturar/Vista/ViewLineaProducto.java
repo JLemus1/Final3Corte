@@ -287,6 +287,7 @@ public class ViewLineaProducto extends javax.swing.JFrame {
          else
             fila[6]=Integer.parseInt(numFact);
          model.addRow(fila);
+          
          
          this.setVisible(false);
     }//GEN-LAST:event_btnAddProductoActionPerformed

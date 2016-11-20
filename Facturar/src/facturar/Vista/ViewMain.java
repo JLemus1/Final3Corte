@@ -173,6 +173,12 @@ public class ViewMain extends javax.swing.JFrame {
                 vcli.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 vcli.setVisible(true);
                 break;
+            case "Listar Clientes":
+                ViewListaCliente vliscli = new ViewListaCliente();
+                vliscli.setLocationRelativeTo(null);
+                vliscli.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vliscli.setVisible(true);
+                break;
             case "Nuevo Producto":  
                 ViewProducto vprod = new ViewProducto();
                 vprod.setLocationRelativeTo(null);
